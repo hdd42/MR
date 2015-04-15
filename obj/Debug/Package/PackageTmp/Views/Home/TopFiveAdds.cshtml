@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MediaRadarWeb.Models.AdsVm>
+
+<div class="row">
+    <h4 class="page-header"> <em>The top five ads by page coverage amount</em></h4>
+    <div class="col-lg-12">
+        <h4 id="loading">Adds Loading...</h4>
+        <table id="AddTable" class="table table-bordered table-striped dataTable hidden">
+            <thead>
+                <tr>
+                    <th>AdId</th>
+                    <th>Brand Id</th>
+                    <th>Brand Name</th>
+
+                    <th>Pages</th>
+                    <th>Position</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var m in Model)
+                {
+                    <tr>
+                        <td>@m.AdId</td>
+                        <td>@m.BrandId</td>
+                        <td>@m.BrandName</td>
+                        <td>@m.NumPages</td>
+                        <td>@m.Position</td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+
+        $(document).ready(function() {
+            $("#AddTable").dataTable({ "order":[[2, "asc"]] }).removeClass("hidden");
+            $("#loading").hide();
+        });
+    </script>
+
+}
+
+
