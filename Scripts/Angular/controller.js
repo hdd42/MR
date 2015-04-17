@@ -7,7 +7,7 @@
     function mapController($scope, mrApi) {
 
         $scope.loading = true;
-
+        angular.element("#ngApp").removeClass("hidden")    ;
         $scope.adds = [];
         $scope.allAdds = [];
         $scope.getTopFives = [];
